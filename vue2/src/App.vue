@@ -1,19 +1,41 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <img alt="Vue logo" src="./assets/logo.png" />
+    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <div>
+      <button v-on:click="plus">Plus</button>
+      <button v-on:click="something">Change name</button>
+      <p>{{ title }}</p>
+      <p>{{ test.number }}</p>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from "./components/HelloWorld.vue";
+
+let test = { number: 1 }
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
+    HelloWorld,
+  },
+  data() {
+    return {
+      title: "Hello World",
+      test
+    }
+  },
+  methods: {
+    plus() {
+      test.number++;
+    },
+    something() {
+      this.title = this.title + " Yhonatan";
+    }
   }
-}
+};
 </script>
 
 <style>
