@@ -21,11 +21,15 @@ export default {
   components: {
     HelloWorld,
   },
-  data() {
+  data: () => {
     return {
       title: "Hello World",
       test
     }
+  },
+
+  props: {
+
   },
   methods: {
     plus() {
@@ -33,6 +37,11 @@ export default {
     },
     something() {
       this.title = this.title + " Yhonatan";
+    }
+  },
+  watch: {
+    a: function(val, oldVal) {
+      console.log('new: %s, old: %s', val, oldVal);
     }
   }
 };
